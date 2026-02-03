@@ -77,7 +77,7 @@
     border: 1.5px solid rgba(0, 234, 255, 0.7);
     max-width: 310px;
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px); /* Ajuste para Safari */
+    -webkit-backdrop-filter: blur(8px);
   }
 
   #countdown {
@@ -92,20 +92,15 @@
 
   .beer { position: fixed; top: -50px; font-size: 25px; animation: fall linear forwards; z-index: 100; }
   @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
-  
-  /* Ajuste no player para o Safari aceitar */
-  #player { position: absolute; width: 1px; height: 1px; bottom: 0; left: 0; opacity: 0.01; pointer-events: none; }
 </style>
 </head>
 <body>
 
 <div id="explosion-overlay"></div>
 
-<iframe id="player" 
-  src="" 
-  frameborder="0" 
-  allow="autoplay; encrypted-media">
-</iframe>
+<audio id="musica" preload="auto">
+  <source src="https://www.myinstants.com/media/sounds/innerbloom-vinicius-cavalcante-corrigido.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container" id="inicio">
   <h1>🚀 Você foi convocado 🚀</h1>
@@ -139,9 +134,13 @@
 
 <script>
 function entrar() {
-  // AJUSTE PARA IPHONE: Carregamos o src NO MOMENTO do clique
-  const player = document.getElementById('player');
-  player.src = "https://www.youtube.com/embed/_H_171CJYHM?autoplay=1&start=28&rel=0&controls=0&showinfo=0";
+  const som = document.getElementById('musica');
+  
+  // No Safari, o play() deve ser o primeiro comando após o clique
+  som.currentTime = 28; // Começa no segundo 28
+  som.play().catch(function(error) {
+    console.log("Erro ao tocar: ", error);
+  });
 
   document.getElementById('explosion-overlay').classList.add('flash-active');
   
