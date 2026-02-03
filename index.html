@@ -17,7 +17,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: background 0.8s ease-in-out;
   }
 
   .container { 
@@ -29,14 +28,15 @@
     align-items: center;
   }
 
-  h1 { font-size: 26px; text-shadow: 0 0 15px #00eaff; margin-bottom: 10px; }
+  /* TÍTULO CRIATIVO */
+  h1 { font-size: 26px; text-shadow: 0 0 15px #00eaff; margin-bottom: 10px; text-transform: uppercase; }
 
   .btn-container { position: relative; display: inline-block; margin-top: 20px; }
   
   .btn-atom {
     position: relative;
-    padding: 15px 35px;
-    font-size: 18px;
+    padding: 15px 45px;
+    font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
     border: none;
@@ -72,16 +72,16 @@
 
   .hidden { display: none !important; }
 
-  /* CARD MAIS TRANSPARENTE */
+  /* CARD TRANSPARENTE PARA APARECER O ZECA */
   .card {
-    background: rgba(0, 0, 0, 0.25); /* Reduzi para 0.25 para aparecer mais o fundo */
+    background: rgba(0, 0, 0, 0.25); 
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
     width: 90%;
     max-width: 320px;
-    backdrop-filter: blur(4px); /* Reduzi o desfoque de 10px para 4px */
+    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     animation: popIn 0.5s ease-out;
   }
@@ -118,12 +118,15 @@
 </div>
 
 <div class="container" id="inicio">
-  <h1>🚀 Você foi convocado 🚀</h1>
-  <p style="font-size: 14px; opacity: 0.9; font-weight: bold;">ATURAR OU SURTAR?<br>TOQUE PARA ENTRAR 🚀</p>
+  <h1>🚀 FILOSOFIA DO ARTHUR 🚀</h1>
+  <p style="font-size: 18px; opacity: 0.9; font-weight: bold; line-height: 1.5;">
+    O QUE É A VIDA?<br>
+    A VIDA É UMA... 🚀
+  </p>
   <div class="btn-container">
     <div class="orbit"></div>
     <div class="orbit" style="animation-duration: 4s; width: 160%;"></div>
-    <button class="btn-atom" onclick="entrar()">RESENHA</button>
+    <button class="btn-atom" onclick="entrar()">MARAVILHA</button>
   </div>
 </div>
 
