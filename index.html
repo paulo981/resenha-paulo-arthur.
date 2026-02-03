@@ -17,9 +17,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: background 0.8s ease-in-out;
   }
 
-  /* Ajuste de Container para Celular */
   .container { 
     width: 100%; 
     padding: 10px; 
@@ -31,7 +31,6 @@
 
   h1 { font-size: 26px; text-shadow: 0 0 15px #00eaff; margin-bottom: 10px; }
 
-  /* --- BOTÃO REATOR MOBILE --- */
   .btn-container { position: relative; display: inline-block; margin-top: 20px; }
   
   .btn-atom {
@@ -48,7 +47,7 @@
     z-index: 10;
     box-shadow: 0 0 20px #00eaff;
     animation: pulse-glow 1.5s infinite alternate;
-    -webkit-tap-highlight-color: transparent; /* Remove brilho de clique no iPhone */
+    -webkit-tap-highlight-color: transparent;
   }
 
   @keyframes pulse-glow {
@@ -71,26 +70,26 @@
     100% { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
-  /* --- CARD MOBILE (GLASSMORPHISM) --- */
   .hidden { display: none !important; }
+
+  /* CARD MAIS TRANSPARENTE */
   .card {
-    background: rgba(0, 0, 0, 0.6); 
+    background: rgba(0, 0, 0, 0.25); /* Reduzi para 0.25 para aparecer mais o fundo */
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 0 30px rgba(0, 234, 255, 0.2);
-    border: 1px solid rgba(0, 234, 255, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 90%;
     max-width: 320px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px); /* Reduzi o desfoque de 10px para 4px */
+    -webkit-backdrop-filter: blur(4px);
     animation: popIn 0.5s ease-out;
   }
 
-  /* --- CONTADOR MOBILE --- */
   #countdown {
     display: flex;
     justify-content: space-around;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 12px;
     padding: 10px;
     margin: 15px 0;
@@ -98,12 +97,11 @@
   .time-box { font-size: 9px; text-transform: uppercase; color: #00eaff; }
   .time-box span { display: block; font-size: 20px; color: #fff; font-weight: bold; }
 
-  /* --- PLAYER INVISÍVEL PARA IPHONE --- */
   #player-wrapper {
     position: absolute;
     top: 0; left: 0;
     width: 1px; height: 1px;
-    opacity: 0.01; /* Safari exige que não seja 0 */
+    opacity: 0.01;
     overflow: hidden;
   }
 
@@ -131,9 +129,9 @@
 
 <div class="container hidden" id="convite">
   <div class="card">
-    <h2 style="font-size: 22px; margin: 0;">🔥 Resenha do<br>Paulo Arthur 🔥</h2>
+    <h2 style="font-size: 22px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">🔥 Resenha do<br>Paulo Arthur 🔥</h2>
     <p style="margin: 5px 0; font-size: 14px;">Aniversário do brabo</p>
-    <p style="font-size: 28px; color: #00eaff; font-weight: bold; margin: 10px 0;">15/03</p>
+    <p style="font-size: 28px; color: #00eaff; font-weight: bold; margin: 10px 0; text-shadow: 0 0 10px #00eaff;">15/03</p>
 
     <div id="countdown">
       <div class="time-box"><span id="days">00</span>Dias</div>
@@ -141,11 +139,11 @@
       <div class="time-box"><span id="mins">00</span>Min</div>
     </div>
 
-    <p style="font-size: 16px; margin: 5px 0;">📍 <strong>Sítio Agrovale</strong></p>
-    <p style="font-size: 16px; margin: 5px 0;">🎤 No som: <strong>PH Maia</strong></p>
-    <p style="color: #ffcc00; font-weight: bold; margin-top: 10px; font-size: 18px;">🧊 TRAGA SEU COOLER 🧊</p>
+    <p style="font-size: 16px; margin: 5px 0; text-shadow: 1px 1px 2px #000;">📍 <strong>Sítio Agrovale</strong></p>
+    <p style="font-size: 16px; margin: 5px 0; text-shadow: 1px 1px 2px #000;">🎤 No som: <strong>PH Maia</strong></p>
+    <p style="color: #ffcc00; font-weight: bold; margin-top: 10px; font-size: 18px; text-shadow: 1px 1px 2px #000;">🧊 TRAGA SEU COOLER 🧊</p>
     
-    <p style="margin-top: 15px; font-size: 13px; opacity: 0.9;">🍻 Até o Zeca já confirmou,<br>agora só falta você!</p>
+    <p style="margin-top: 15px; font-size: 13px; opacity: 0.9; text-shadow: 1px 1px 2px #000;">🍻 Até o Zeca já confirmou,<br>agora só falta você!</p>
     
     <button class="btn-atom" onclick="confirmar()" style="margin-top:15px; font-size: 14px; padding: 12px 20px; animation: none;">Confirmar presença ✅</button>
   </div>
@@ -160,7 +158,7 @@ function onYouTubeIframeAPIReady() {
     videoId: '_H_171CJYHM',
     playerVars: {
       'start': 28,
-      'playsinline': 1, // Impede que o iPhone force tela cheia
+      'playsinline': 1,
       'controls': 0,
       'disablekb': 1
     },
@@ -181,7 +179,7 @@ function entrar() {
   document.getElementById('convite').classList.remove('hidden');
   
   const imgZeca = "https://adnews.nyc3.digitaloceanspaces.com/media/7f0dd8bf7d9db02ccee77ccfbd27ed9d.jpg";
-  document.body.style.background = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${imgZeca}') no-repeat center center fixed`;
+  document.body.style.background = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${imgZeca}') no-repeat center center fixed`;
   document.body.style.backgroundSize = "cover";
   
   startTimer();
