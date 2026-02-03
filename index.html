@@ -97,15 +97,15 @@
   @keyframes popIn { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
   .beer { position: fixed; top: -50px; font-size: 25px; animation: fall linear forwards; z-index: 100; }
   @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+  
+  #player { position: absolute; width: 1px; height: 1px; opacity: 0; }
 </style>
 </head>
 <body>
 
 <div id="explosion-overlay"></div>
 
-<div id="player-container" style="display:none">
-  <div id="player"></div>
-</div>
+<iframe id="player" allow="autoplay"></iframe>
 
 <div class="container" id="inicio">
   <h1>🚀 Você foi convocado 🚀</h1>
@@ -137,32 +137,11 @@
   </div>
 </div>
 
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '1',
-    width: '1',
-    videoId: '_H_171CJYHM',
-    playerVars: {
-      'start': 28,
-      'autoplay': 0,
-      'controls': 0,
-      'showinfo': 0,
-      'modestbranding': 1,
-      'loop': 1,
-      'playlist': '_H_171CJYHM'
-    }
-  });
-}
-
 function entrar() {
-  if (player && player.playVideo) {
-    player.unMute();
-    player.setVolume(100);
-    player.playVideo();
-  }
+  const iframe = document.getElementById('player');
+  // Carrega a música SEM MUDO direto no clique (isso resolve o problema do som)
+  iframe.src = "https://www.youtube.com/embed/_H_171CJYHM?autoplay=1&start=28&playlist=_H_171CJYHM&loop=1";
 
   document.getElementById('explosion-overlay').classList.add('flash-active');
   
@@ -193,6 +172,7 @@ function startTimer() {
 function confirmar(){
   soltarCerveja();
   setTimeout(() => {
+    // Número atualizado 61 993190917
     window.location.href='https://wa.me/5561993190917?text=Até%20o%20Zeca%20confirmou,%20eu%20não%20fico%20de%20fora!%20Confirmado!%20🍻';
   }, 1500);
 }
