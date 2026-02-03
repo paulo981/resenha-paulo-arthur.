@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -34,12 +34,11 @@
     z-index: 10;
     box-shadow: 0 0 20px #00eaff;
     animation: pulse-glow 1.5s infinite alternate;
-    letter-spacing: 2px;
   }
 
   @keyframes pulse-glow {
     from { transform: scale(1); box-shadow: 0 0 15px #00eaff; }
-    to { transform: scale(1.08); box-shadow: 0 0 35px #00eaff, 0 0 50px rgba(0, 234, 255, 0.6); }
+    to { transform: scale(1.08); box-shadow: 0 0 35px #00eaff; }
   }
 
   .orbit {
@@ -51,12 +50,11 @@
     pointer-events: none;
     animation: rotate-orbit 2s linear infinite;
   }
-  .orbit:nth-child(2) { animation-duration: 3.5s; animation-delay: -0.5s; width: 180%; }
+  .orbit:nth-child(2) { animation-duration: 3.5s; width: 180%; }
 
   @keyframes rotate-orbit {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
-    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.1); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
   #explosion-overlay {
@@ -70,7 +68,7 @@
   .flash-active { animation: flash-anim 0.7s ease-out; }
   @keyframes flash-anim { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: 0; } }
 
-  .hidden { display: none; }
+  .hidden { display: none !important; }
   .card {
     background: rgba(0, 0, 0, 0.4); 
     border-radius: 25px;
@@ -79,7 +77,7 @@
     border: 1.5px solid rgba(0, 234, 255, 0.7);
     max-width: 310px;
     backdrop-filter: blur(8px);
-    animation: popIn 0.6s ease-out;
+    -webkit-backdrop-filter: blur(8px); /* Ajuste para Safari */
   }
 
   #countdown {
@@ -89,23 +87,25 @@
     border-radius: 15px;
     padding: 12px;
     margin: 15px 0;
-    border: 1px solid rgba(0, 234, 255, 0.2);
   }
-  .time-box { font-size: 10px; text-transform: uppercase; color: #00eaff; }
   .time-box span { display: block; font-size: 22px; color: #fff; font-weight: bold; }
 
-  @keyframes popIn { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
   .beer { position: fixed; top: -50px; font-size: 25px; animation: fall linear forwards; z-index: 100; }
   @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
   
-  #player { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  /* Ajuste no player para o Safari aceitar */
+  #player { position: absolute; width: 1px; height: 1px; bottom: 0; left: 0; opacity: 0.01; pointer-events: none; }
 </style>
 </head>
 <body>
 
 <div id="explosion-overlay"></div>
 
-<iframe id="player" allow="autoplay"></iframe>
+<iframe id="player" 
+  src="" 
+  frameborder="0" 
+  allow="autoplay; encrypted-media">
+</iframe>
 
 <div class="container" id="inicio">
   <h1>🚀 Você foi convocado 🚀</h1>
@@ -120,8 +120,8 @@
 <div class="container hidden" id="convite">
   <div class="card">
     <h1>🔥 Resenha do Paulo Arthur 🔥</h1>
-    <p style="margin: 5px 0;">🎂 Aniversário do brabo</p>
-    <p style="font-size: 26px; color: #00eaff; font-weight: bold; margin: 5px 0; text-shadow: 0 0 10px #00eaff;">15/03</p>
+    <p>🎂 Aniversário do brabo</p>
+    <p style="font-size: 26px; color: #00eaff; font-weight: bold;">15/03</p>
 
     <div id="countdown">
       <div class="time-box"><span id="days">00</span>Dias</div>
@@ -129,19 +129,19 @@
       <div class="time-box"><span id="mins">00</span>Min</div>
     </div>
 
-    <p style="font-size: 15px;">📍 <strong>Sítio Agrovale</strong></p>
-    <p style="font-size: 15px;">🎤 No som: <strong>PH Maia</strong></p>
-    <p style="font-size: 16px; margin-top: 15px; color: #fff; line-height: 1.4; font-weight: 500;">🍻 Até o Zeca já confirmou,<br>agora só falta você!</p>
+    <p>📍 <strong>Sítio Agrovale</strong></p>
+    <p>🎤 No som: <strong>PH Maia</strong></p>
+    <p style="margin-top: 15px;">🍻 Até o Zeca já confirmou,<br>agora só falta você!</p>
     
-    <button class="btn-atom" onclick="confirmar()" style="margin-top:15px; font-size: 14px; padding: 12px 25px; animation: none;">Confirmar presença ✅</button>
+    <button class="btn-atom" onclick="confirmar()" style="margin-top:15px; font-size: 14px; animation: none;">Confirmar presença ✅</button>
   </div>
 </div>
 
 <script>
 function entrar() {
-  const iframe = document.getElementById('player');
-  // Carrega a música SEM MUDO direto no clique (isso resolve o problema do som)
-  iframe.src = "https://www.youtube.com/embed/_H_171CJYHM?autoplay=1&start=28&playlist=_H_171CJYHM&loop=1";
+  // AJUSTE PARA IPHONE: Carregamos o src NO MOMENTO do clique
+  const player = document.getElementById('player');
+  player.src = "https://www.youtube.com/embed/_H_171CJYHM?autoplay=1&start=28&rel=0&controls=0&showinfo=0";
 
   document.getElementById('explosion-overlay').classList.add('flash-active');
   
@@ -172,7 +172,6 @@ function startTimer() {
 function confirmar(){
   soltarCerveja();
   setTimeout(() => {
-    // Número atualizado 61 993190917
     window.location.href='https://wa.me/5561993190917?text=Até%20o%20Zeca%20confirmou,%20eu%20não%20fico%20de%20fora!%20Confirmado!%20🍻';
   }, 1500);
 }
