@@ -95,7 +95,6 @@
   .time-box { font-size: 9px; text-transform: uppercase; color: #00eaff; }
   .time-box span { display: block; font-size: 20px; color: #fff; font-weight: bold; }
 
-  /* ESTILO DO BOTÃO DE LOCALIZAÇÃO */
   .btn-mapa {
     display: inline-block;
     margin-top: 8px;
@@ -125,7 +124,6 @@
 
   .beer { position: fixed; top: -50px; font-size: 25px; animation: fall linear forwards; z-index: 100; }
   @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
-
   @keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
 </style>
 </head>
@@ -136,7 +134,7 @@
 </div>
 
 <div class="container" id="inicio">
-  <h1>🚀 3.2 🚀</h1>
+  <h1>🚀 3.2🚀</h1>
   <p style="font-size: 18px; opacity: 0.9; font-weight: bold; line-height: 1.5;">
     O QUE É A VIDA?<br>
     A VIDA É UMA... 🚀
@@ -152,7 +150,9 @@
   <div class="card">
     <h2 style="font-size: 22px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">🔥 Resenha do<br>Paulo Arthur 🔥</h2>
     <p style="margin: 5px 0; font-size: 14px;">Aniversário do brabo</p>
-    <p style="font-size: 28px; color: #00eaff; font-weight: bold; margin: 10px 0; text-shadow: 0 0 10px #00eaff;">15/03</p>
+    
+    <p style="font-size: 28px; color: #00eaff; font-weight: bold; margin: 10px 0 0 0; text-shadow: 0 0 10px #00eaff;">15/03</p>
+    <p style="font-size: 18px; color: #fff; margin: 0 0 10px 0; font-weight: bold;">À partir das 13:00h</p>
 
     <div id="countdown">
       <div class="time-box"><span id="days">00</span>Dias</div>
@@ -211,7 +211,8 @@ function entrar() {
 }
 
 function startTimer() {
-  const eventDate = new Date("March 15, 2026 14:00:00").getTime();
+  // Ajustado para 13:00h
+  const eventDate = new Date("March 15, 2026 13:00:00").getTime();
   setInterval(() => {
     const now = new Date().getTime();
     const diff = eventDate - now;
