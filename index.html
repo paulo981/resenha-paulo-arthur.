@@ -98,16 +98,17 @@
   .btn-mapa {
     display: inline-block;
     margin-top: 8px;
-    padding: 8px 15px;
-    background: rgba(0, 234, 255, 0.15);
+    padding: 10px 18px;
+    background: rgba(0, 234, 255, 0.2);
     border: 1px solid #00eaff;
     color: #00eaff;
-    border-radius: 20px;
+    border-radius: 25px;
     text-decoration: none;
     font-size: 13px;
     font-weight: bold;
     transition: 0.3s;
     text-shadow: none;
+    box-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
   }
   .btn-mapa:hover {
     background: #00eaff;
@@ -152,7 +153,7 @@
     <p style="margin: 5px 0; font-size: 14px;">Aniversário do brabo</p>
     
     <p style="font-size: 28px; color: #00eaff; font-weight: bold; margin: 10px 0 0 0; text-shadow: 0 0 10px #00eaff;">15/03</p>
-    <p style="font-size: 18px; color: #fff; margin: 0 0 10px 0; font-weight: bold;">À partir das 13:00h</p>
+    <p style="font-size: 18px; color: #fff; margin: 0 0 10px 0; font-weight: bold;">A partir das 13:00h</p>
 
     <div id="countdown">
       <div class="time-box"><span id="days">00</span>Dias</div>
@@ -161,8 +162,8 @@
     </div>
 
     <p style="font-size: 16px; margin: 5px 0; text-shadow: 1px 1px 2px #000;">
-        📍 <strong>Sítio Agrovale</strong><br>
-        <a href="https://www.google.com/maps/place//@-15.6978712,-47.6665039,633m/data=!3m1!1e3!4m6!1m5!3m4!2zMTXCsDQxJzUyLjMiUyA0N8KwMzknNTAuMSJX!8m2!3d-15.6978712!4d-47.663929?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-mapa">VER LOCAL NO MAPA 🗺️</a>
+        📍 <strong>Sítio P&P</strong><br>
+        <a href="https://www.google.com/maps/search/?api=1&query=Sítio+P%26P+Planaltina+Brasília&query_place_id=ChIJy1YVs2YRWpMRMxh7JfOqh3k" target="_blank" class="btn-mapa">ABRIR LOCALIZAÇÃO 🗺️</a>
     </p>
     
     <p style="font-size: 16px; margin: 10px 0 5px 0; text-shadow: 1px 1px 2px #000;">🎤 No som: <strong>PH Maia</strong></p>
@@ -211,7 +212,6 @@ function entrar() {
 }
 
 function startTimer() {
-  // Ajustado para 13:00h
   const eventDate = new Date("March 15, 2026 13:00:00").getTime();
   setInterval(() => {
     const now = new Date().getTime();
