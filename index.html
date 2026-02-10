@@ -28,7 +28,6 @@
     align-items: center;
   }
 
-  /* TÍTULO CRIATIVO */
   h1 { font-size: 26px; text-shadow: 0 0 15px #00eaff; margin-bottom: 10px; text-transform: uppercase; }
 
   .btn-container { position: relative; display: inline-block; margin-top: 20px; }
@@ -72,7 +71,6 @@
 
   .hidden { display: none !important; }
 
-  /* CARD TRANSPARENTE PARA APARECER O ZECA */
   .card {
     background: rgba(0, 0, 0, 0.25); 
     border-radius: 20px;
@@ -97,6 +95,26 @@
   .time-box { font-size: 9px; text-transform: uppercase; color: #00eaff; }
   .time-box span { display: block; font-size: 20px; color: #fff; font-weight: bold; }
 
+  /* ESTILO DO BOTÃO DE LOCALIZAÇÃO */
+  .btn-mapa {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 15px;
+    background: rgba(0, 234, 255, 0.15);
+    border: 1px solid #00eaff;
+    color: #00eaff;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-shadow: none;
+  }
+  .btn-mapa:hover {
+    background: #00eaff;
+    color: #000;
+  }
+
   #player-wrapper {
     position: absolute;
     top: 0; left: 0;
@@ -118,7 +136,7 @@
 </div>
 
 <div class="container" id="inicio">
-  <h1>🚀 FILOSOFIA DO ARTHUR 🚀</h1>
+  <h1>🚀 3.2🚀</h1>
   <p style="font-size: 18px; opacity: 0.9; font-weight: bold; line-height: 1.5;">
     O QUE É A VIDA?<br>
     A VIDA É UMA... 🚀
@@ -142,8 +160,12 @@
       <div class="time-box"><span id="mins">00</span>Min</div>
     </div>
 
-    <p style="font-size: 16px; margin: 5px 0; text-shadow: 1px 1px 2px #000;">📍 <strong>Sítio Agrovale</strong></p>
-    <p style="font-size: 16px; margin: 5px 0; text-shadow: 1px 1px 2px #000;">🎤 No som: <strong>PH Maia</strong></p>
+    <p style="font-size: 16px; margin: 5px 0; text-shadow: 1px 1px 2px #000;">
+        📍 <strong>Sítio Agrovale</strong><br>
+        <a href="https://www.google.com/maps/place//@-15.6978712,-47.6665039,633m/data=!3m1!1e3!4m6!1m5!3m4!2zMTXCsDQxJzUyLjMiUyA0N8KwMzknNTAuMSJX!8m2!3d-15.6978712!4d-47.663929?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-mapa">VER LOCAL NO MAPA 🗺️</a>
+    </p>
+    
+    <p style="font-size: 16px; margin: 10px 0 5px 0; text-shadow: 1px 1px 2px #000;">🎤 No som: <strong>PH Maia</strong></p>
     <p style="color: #ffcc00; font-weight: bold; margin-top: 10px; font-size: 18px; text-shadow: 1px 1px 2px #000;">🧊 TRAGA SEU COOLER 🧊</p>
     
     <p style="margin-top: 15px; font-size: 13px; opacity: 0.9; text-shadow: 1px 1px 2px #000;">🍻 Até o Zeca já confirmou,<br>agora só falta você!</p>
